@@ -26,12 +26,14 @@ const bcrypt = require('bcryptjs');
 
 const myFuction = async () => {
     const password = "Champ@2658";
+    // .hash method is from bcrypt library and it will return promise
     const hashedPassword = await bcrypt.hash(password, 8);
 
     console.log(password);
     console.log(hashedPassword);
 
     // given password is matched with the hashed password or not
+    // hashing algorithm is not reversible
 
     const isMatch = await bcrypt.compare('Champ@2658' , hashedPassword);
     console.log(isMatch);
